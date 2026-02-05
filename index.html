@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Valentine 💕</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Flower Overlay -->
+  <div class="flower-container">
+    <svg
+      id="flower"
+      viewBox="0 0 200 200"
+      width="200"
+      height="200"
+      aria-hidden="true"
+    >
+      <!-- Outer petals -->
+      <g class="petal-layer layer-1">
+        <ellipse cx="100" cy="40" rx="22" ry="40" />
+        <ellipse cx="160" cy="100" rx="22" ry="40" transform="rotate(90 160 100)" />
+        <ellipse cx="100" cy="160" rx="22" ry="40" />
+        <ellipse cx="40" cy="100" rx="22" ry="40" transform="rotate(90 40 100)" />
+      </g>
+
+      <!-- Middle petals -->
+      <g class="petal-layer layer-2">
+        <ellipse cx="100" cy="55" rx="18" ry="32" />
+        <ellipse cx="145" cy="100" rx="18" ry="32" transform="rotate(90 145 100)" />
+        <ellipse cx="100" cy="145" rx="18" ry="32" />
+        <ellipse cx="55" cy="100" rx="18" ry="32" transform="rotate(90 55 100)" />
+      </g>
+
+      <!-- Inner petals -->
+      <g class="petal-layer layer-3">
+        <ellipse cx="100" cy="75" rx="14" ry="26" />
+        <ellipse cx="125" cy="100" rx="14" ry="26" transform="rotate(90 125 100)" />
+        <ellipse cx="100" cy="125" rx="14" ry="26" />
+        <ellipse cx="75" cy="100" rx="14" ry="26" transform="rotate(90 75 100)" />
+      </g>
+
+      <!-- Center -->
+      <circle cx="100" cy="100" r="10" fill="#f1c40f" />
+    </svg>
+  </div>
+
+  <!-- Hero -->
+  <section class="section hero">
+    <h1>For <span>Simi</span> 💖</h1>
+    <p>I have something important to ask you…</p>
+    <div class="scroll-hint">Scroll ↓</div>
+  </section>
+
+  <!-- Spotify -->
+  <section class="section music">
+    <p class="music-note">
+      Press play if you want to hear the song I was thinking of 🌸
+    </p>
+
+    <div class="spotify-wrapper" id="spotify">
+      <iframe data-testid="embed-iframe" style="border-radius:12px" 
+      src="https://open.spotify.com/embed/track/7h4kuDm5aiJcq28qRfea8f?utm_source=generator" 
+      width="100%" height="152" frameBorder="0" allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Message -->
+  <section class="section message">
+    <p>You make ordinary days feel lighter.</p>
+    <p>You bring calm where there’s noise.</p>
+    <p>And somehow, you make everything feel like home.</p>
+  </section>
+
+  <!-- Question -->
+  <section class="section question">
+    <h2>Will you be my Valentine?</h2>
+    <div class="buttons">
+      <button id="yesBtn">Yes 💕</button>
+      <button id="noBtn">No 😅</button>
+    </div>
+  </section>
+
+  <!-- Result -->
+  <section class="section result hidden" id="result">
+    <h2>Yayyyyy 🥰</h2>
+    <p>You just made me very happy.</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
