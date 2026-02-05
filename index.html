@@ -1,95 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Valentine 💕</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vivian, My love | A Special Question 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Starry background -->
+    <div class="stars" id="stars"></div>
 
-  <!-- Flower Overlay -->
-  <div class="flower-container">
-    <svg
-      id="flower"
-      viewBox="0 0 200 200"
-      width="200"
-      height="200"
-      aria-hidden="true"
-    >
-      <!-- Outer petals -->
-      <g class="petal-layer layer-1">
-        <ellipse cx="100" cy="40" rx="22" ry="40" />
-        <ellipse cx="160" cy="100" rx="22" ry="40" transform="rotate(90 160 100)" />
-        <ellipse cx="100" cy="160" rx="22" ry="40" />
-        <ellipse cx="40" cy="100" rx="22" ry="40" transform="rotate(90 40 100)" />
-      </g>
+    <!-- Three.js flower canvas -->
+    <canvas id="flower-canvas"></canvas>
 
-      <!-- Middle petals -->
-      <g class="petal-layer layer-2">
-        <ellipse cx="100" cy="55" rx="18" ry="32" />
-        <ellipse cx="145" cy="100" rx="18" ry="32" transform="rotate(90 145 100)" />
-        <ellipse cx="100" cy="145" rx="18" ry="32" />
-        <ellipse cx="55" cy="100" rx="18" ry="32" transform="rotate(90 55 100)" />
-      </g>
+    <!-- Content -->
+    <div class="content">
+        <section class="hero">
+            <div class="hero-card">
+                <div class="hero-subtitle">FOR MY DEAREST</div>
+                <div class="hero-title">Simi</div>
+                <div class="hero-instruction">SCROLL SLOWLY</div>
+            </div>
+        </section>
 
-      <!-- Inner petals -->
-      <g class="petal-layer layer-3">
-        <ellipse cx="100" cy="75" rx="14" ry="26" />
-        <ellipse cx="125" cy="100" rx="14" ry="26" transform="rotate(90 125 100)" />
-        <ellipse cx="100" cy="125" rx="14" ry="26" />
-        <ellipse cx="75" cy="100" rx="14" ry="26" transform="rotate(90 75 100)" />
-      </g>
+        <section class="poem-section">
+            <div class="poem-card"><div class="poem-text">"My darkest dark, my brightest light."</div></div>
+        </section>
+        <section class="poem-section">
+            <div class="poem-card"><div class="poem-text">"No measure known of space or time,"</div></div>
+        </section>
+        <section class="poem-section">
+            <div class="poem-card"><div class="poem-text">"Could ever break this heart of mine."</div></div>
+        </section>
 
-      <!-- Center -->
-      <circle cx="100" cy="100" r="10" fill="#f1c40f" />
-    </svg>
-  </div>
+        <section class="question-section">
+            <div class="question-card">
+                <div class="question-text">
+                    Will you<br>be my<br><span class="valentine">Valentine?</span>
+                </div>
+                <button class="yes-button" id="yesButton">YES</button>
+            </div>
+        </section>
 
-  <!-- Hero -->
-  <section class="section hero">
-    <h1>For <span>Simi</span> 💖</h1>
-    <p>I have something important to ask you…</p>
-    <div class="scroll-hint">Scroll ↓</div>
-  </section>
-
-  <!-- Spotify -->
-  <section class="section music">
-    <p class="music-note">
-      Press play if you want to hear the song I was thinking of 🌸
-    </p>
-
-    <div class="spotify-wrapper" id="spotify">
-      <iframe data-testid="embed-iframe" style="border-radius:12px" 
-      src="https://open.spotify.com/embed/track/7h4kuDm5aiJcq28qRfea8f?utm_source=generator" 
-      width="100%" height="152" frameBorder="0" allowfullscreen="" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy"></iframe>
+        <section class="thankyou-section" id="thankyouSection">
+            <div class="thankyou-card">
+                <div class="thankyou-text">Thank<br>you.</div>
+                <div class="thankyou-underline"></div>
+            </div>
+        </section>
     </div>
-  </section>
 
-  <!-- Message -->
-  <section class="section message">
-    <p>You make ordinary days feel lighter.</p>
-    <p>You bring calm where there’s noise.</p>
-    <p>And somehow, you make everything feel like home.</p>
-  </section>
+    <!-- Music Button -->
+    <button class="music-button" id="musicButton">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pauseIcon" style="display:none;" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+    </button>
 
-  <!-- Question -->
-  <section class="section question">
-    <h2>Will you be my Valentine?</h2>
-    <div class="buttons">
-      <button id="yesBtn">Yes 💕</button>
-      <button id="noBtn">No 😅</button>
-    </div>
-  </section>
+    <!-- Audio -->
+    <audio id="bgMusic" loop>
+        <source src="audio/bg-music.mp3" type="audio/mpeg">
+    </audio>
 
-  <!-- Result -->
-  <section class="section result hidden" id="result">
-    <h2>Yayyyyy 🥰</h2>
-    <p>You just made me very happy.</p>
-  </section>
-
-  <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/stars.js"></script>
+    <script src="js/flower.js"></script>
+    <script src="js/confetti.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
