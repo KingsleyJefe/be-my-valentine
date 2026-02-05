@@ -16,10 +16,44 @@ musicButton.addEventListener('click', () => {
     else{ bgMusic.play(); playIcon.style.display='none'; pauseIcon.style.display='block'; }
     isPlaying = !isPlaying;
 });
+let allowAutoCenter = true; // controls auto-centering
 
-// YES button
+const questionSection = document.querySelector('.question-section');
 const yesButton = document.getElementById('yesButton');
 const thankyouSection = document.getElementById('thankyouSection');
+
+window.addEventListener('scroll', () => {
+    if (!allowAutoCenter) return; // stop auto-centering after YES
+
+    const sectionTop = questionSection.getBoundingClientRect().top;
+    const windowMiddle = window.innerHeight / 2;
+    const offset = sectionTop - windowMiddle + questionSection.offsetHeight / 2;
+
+    if (offset < 0) {
+        window.scrollBy(0, offset);
+    }
+});
+
+// YES button click
+yesButton.addEventListener('click', () => {
+    allowAutoCenter = false; // stop auto-centering
+
+    // Fully bloom flower
+    updateFlowerBloom(1);
+
+    // Create confetti
+    createConfetti();
+
+    // Change background
+    document.body.style.background = 'linear-gradient(to bottom, #e0e7ff 0%, #fce7f3 50%, #e0e7ff 100%)';
+
+    // Scroll smoothly to thank you section
+    thankyouSection.style.opacity = '1';
+    thankyouSection.style.pointerEvents = 'auto';
+    thankyouSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+
 yesButton.addEventListener('click', () => {
     thankyouSection.classList.add('visible');
     thankyouSection.scrollIntoView({ behavior: 'smooth' });
